@@ -26,7 +26,10 @@ namespace Chess
             GenerateMoves(rowLimit,ColumnLimit);
             this.moveSet = moveSet;
         }
-      
+         
+
+
+
 
 
         /// <summary>
