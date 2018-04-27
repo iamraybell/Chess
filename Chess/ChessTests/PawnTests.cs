@@ -20,17 +20,13 @@ namespace ChessTests
             moveSetList.Add(new List<int>() { -1, -1 });
             moveSetList.Add(new List<int>() { -1, 1 });
 
-            var myPawn = new Pawn(3,2,8,8,moveSetList);
+            var myPawn = new Piece(PieceType.Pawn, 3,2,8,8,moveSetList, false);
 
 
             var results = myPawn.GetPossibleMoves();
 
             CollectionAssert.AreEqual(expectedPossibleMove1, results[0]);
             CollectionAssert.AreEqual(expectedPossibleMove2, results[1]);
-
-
-
-
 
         }
         [TestMethod]
@@ -43,7 +39,7 @@ namespace ChessTests
             //act
 
 
-            var myPawn = new Pawn(2,2,8,8,new List<List<int>>());
+            var myPawn = new Piece(PieceType.Pawn, 2, 2,8,8,new List<List<int>>(),false);
 
 
            
@@ -67,7 +63,7 @@ namespace ChessTests
             //act
 
 
-            var myPawn = new Pawn(2, 2, 8, 8, new List<List<int>>());
+            var myPawn = new Piece(PieceType.Pawn, 2, 2, 8, 8, new List<List<int>>(),false);
             myPawn.SetPosition(4, 4);
 
 
