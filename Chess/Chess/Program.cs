@@ -10,10 +10,7 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            MoveSet<int[]> myMoveset = new MoveSet<int[]>();
-            List
-     
-            myMoveset.add
+
         }
     }
 }

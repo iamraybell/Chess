@@ -43,9 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBoard.cs" />
-    <Compile Include="IMoveSet.cs" />
     <Compile Include="IPiece.cs" />
-    <Compile Include="MoveSet.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
