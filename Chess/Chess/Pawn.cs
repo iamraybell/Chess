@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    class Pawn : IPiece
+    public class Pawn : IPiece
     {
         private int row;
         private int column;
@@ -19,11 +19,11 @@ namespace Chess
         /// </summary>
         /// <param name="row"></param>
         /// <param name="column"></param>
-        public Pawn(int row, int column, IBoard board, List<int[]> moveSet)
+        public Pawn(int row, int column, int rowLimit, int ColumnLimit, List<int[]> moveSet)
         {
             this.row = row;
             this.column = column;
-            GenerateMoves(board);
+            GenerateMoves(rowLimit,ColumnLimit);
             this.moveSet = moveSet;
         }
       
@@ -50,13 +50,13 @@ namespace Chess
 
         }
         // resets possible moves list, and makes a new move list based on moveset passed into Constructor.
-        private void GenerateMoves(IBoard board)
+        private void GenerateMoves(int rowLimit, int ColumnLimit)
         {
             possibleMoves = new List<List<int>>();
             
             foreach(var move in moveSet)
             {
-                if (move[0] + row < board.NumRows && move[0] + row >= 0 && move[1] < board.NumColumns && move[1] >= 0)
+                if (move[0] + row < rowLimit && move[0] + row >= 0 && move[1] < ColumnLimit && move[1] >= 0)
                 {
                     possibleMoves.Add(new List<int> { move[0], move[1] });
                 }
