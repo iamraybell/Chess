@@ -1,9 +1,7 @@
-﻿using System.Collections;
-
-
-namespace Chess
+﻿namespace Chess
 {
-    public interface IMoveSet : ICollection
+    public interface IMoveSet
     {
+         
     }
 }
