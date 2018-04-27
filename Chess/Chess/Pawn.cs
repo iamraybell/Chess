@@ -28,6 +28,7 @@ namespace Chess
         }
       
 
+
         /// <summary>
         /// returns the array of the possible moves this piece can make. 
         /// </summary>
