@@ -63,7 +63,7 @@ namespace Chess
             
             foreach(var move in moveSet)
             {
-                if (move[0] + Row < rowLimit && move[0] + Row >= 0 && move[1]+Column < ColumnLimit && move[1] >= 0)
+                if (move[0] + Row < rowLimit && move[0] + Row >= 0 && move[1]+Column < ColumnLimit && move[1]+ Column >= 0)
                 {
                     possibleMoves.Add(new List<int> { move[0]+Row, move[1]+Column });
                 }

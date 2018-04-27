@@ -42,9 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMoveSet.cs" />
     <Compile Include="IPiece.cs" />
-    <Compile Include="MoveSet.cs" />
     <Compile Include="IBoard.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Program.cs" />

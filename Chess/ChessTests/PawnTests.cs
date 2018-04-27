@@ -33,5 +33,54 @@ namespace ChessTests
 
 
         }
+        [TestMethod]
+        public void TestPawnRowColumns()
+        {
+            //arrange
+            var expectedRow = 2;
+            var expectedColumn = 2;
+
+            //act
+
+
+            var myPawn = new Pawn(2,2,8,8,new List<List<int>>());
+
+
+           
+
+            Assert.AreEqual(expectedRow, myPawn.Row);
+            Assert.AreEqual(expectedColumn, myPawn.Row);
+
+
+
+
+
+
+        }
+        [TestMethod]
+        public void TestPawnSetPosition()
+        {
+            //arrange
+            var expectedRow = 4;
+            var expectedColumn = 4;
+
+            //act
+
+
+            var myPawn = new Pawn(2, 2, 8, 8, new List<List<int>>());
+            myPawn.SetPosition(4, 4);
+
+
+
+
+            Assert.AreEqual(expectedRow, myPawn.Row);
+            Assert.AreEqual(expectedColumn, myPawn.Row);
+
+
+
+
+
+
+        }
     }
 }
