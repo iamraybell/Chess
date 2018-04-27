@@ -48,8 +48,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MoveSetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PawnTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -8,23 +8,26 @@ namespace Chess
 {
     public class Pawn : IPiece
     {
-        private int row;
-        private int column;
+        
+        public int Row { get; private set; }
+        public int Column { get; private set; }
         private List<List<int>> possibleMoves;
-        private List<int[]> moveSet;
+        private List<List<int>> moveSet;
         
 
         /// <summary>
-        /// Constructor. Takes in the row the piece will be and the column. 
+        /// Constructor. Takes in the Row the piece will be and the column. 
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="column"></param>
-        public Pawn(int row, int column, int rowLimit, int ColumnLimit, List<int[]> moveSet)
+        /// <param name="Row"></param>
+        /// <param name="Column"></param>
+        public Pawn(int row, int column, int rowLimit, int ColumnLimit, List<List<int>> moveSet)
         {
-            this.row = row;
-            this.column = column;
-            GenerateMoves(rowLimit,ColumnLimit);
+            this.Row = row;
+            this.Column = column;
             this.moveSet = moveSet;
+            GenerateMoves(rowLimit,ColumnLimit);
+            
+
         }
          
 
@@ -49,8 +52,8 @@ namespace Chess
         /// <param name="column"></param>
         public void SetPosition(int row, int column)
         {
-            this.row = row;
-            this.column = column;
+            this.Row = row;
+            this.Column = column;
 
         }
         // resets possible moves list, and makes a new move list based on moveset passed into Constructor.
@@ -60,9 +63,9 @@ namespace Chess
             
             foreach(var move in moveSet)
             {
-                if (move[0] + row < rowLimit && move[0] + row >= 0 && move[1] < ColumnLimit && move[1] >= 0)
+                if (move[0] + Row < rowLimit && move[0] + Row >= 0 && move[1]+Column < ColumnLimit && move[1] >= 0)
                 {
-                    possibleMoves.Add(new List<int> { move[0], move[1] });
+                    possibleMoves.Add(new List<int> { move[0]+Row, move[1]+Column });
                 }
             }
 
