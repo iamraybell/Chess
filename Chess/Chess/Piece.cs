@@ -8,21 +8,20 @@ namespace Chess
 {
     public class Piece : IPiece
     {
-        public PieceType PieceType { get; private set; }
-        public int Row { get; private set; }
-        public int Column { get; private set; }
         private List<List<int>> possibleMoves;
         private List<List<int>> moveSet;
+
+        public PieceType PieceType { get; private set; }
+
+        public int Row { get; private set; }
+        public int Column { get; private set; }
         public int RowLimit { get; private set; }
         public int ColumnLimit { get; private set; }
         public bool Continuous { get; private set; }
 
-
         /// <summary>
         /// Constructor. Takes in the Row the piece will be and the column. 
         /// </summary>
-        /// <param name="Row"></param>
-        /// <param name="Column"></param>
         public Piece(PieceType pieceType, int row, int column, int rowLimit, int columnLimit, List<List<int>> moveSet, bool continuous)
         {
             this.PieceType = pieceType;
@@ -33,11 +32,8 @@ namespace Chess
             this.moveSet = moveSet;
             this.Continuous = continuous;
             GenerateMoves();
-
-
         }
          
-
         /// <summary>
         /// returns the array of the possible moves this piece can make. 
         /// </summary>
@@ -47,12 +43,9 @@ namespace Chess
             return possibleMoves;
         }
 
-
         /// <summary>
         /// Sets row and column for this piece. 
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="column"></param>
         public void SetPosition(int row, int column)
         {
             this.Row = row;
@@ -84,10 +77,6 @@ namespace Chess
         /// <summary>
         /// This function will recursively check in a direction if a piece can move there. 
         /// </summary>
-        /// <param name="rowFrom"></param>
-        /// <param name="columnFrom"></param>
-        /// <param name="rowBuf"></param>
-        /// <param name="columnBuf"></param>
         private void ContinuousDirectionChecker(int rowFrom, int columnFrom, int rowBuf,int columnBuf )
         {
 
@@ -106,12 +95,43 @@ namespace Chess
         /// <summary>
         /// Tells us if the row and column provide is a valid move. Takes board size into consideration. 
         /// </summary>
-        /// <param name="rowInQuestion"></param>
-        /// <param name="columnInQuestion"></param>
-        /// <returns></returns>
         private bool IsValidMove(int rowInQuestion, int columnInQuestion)
         {
             return rowInQuestion < RowLimit && rowInQuestion >= 0 && columnInQuestion < ColumnLimit && columnInQuestion >= 0;
+        }
+    }
+
+    public class Position
+    {
+        public int Row { get; }
+        public int Column { get; }
+
+        public Position(int row, int column)
+        {
+            Row = row;
+            Column = column;
+        }
+    }
+
+    public class MoveSet
+    {
+        public bool IsContinious { get; private set; }
+        // tbd
+        // maybe somehing like a list of locations?
+        public List<Position> Locations { get; private set; }
+    }
+
+    public class Pawn : Piece
+    {
+        public Pawn()
+            : base(PieceType.Pawn)
+        {
+
+        }
+
+        public List<MoveSet> GetPossibleMoves(PlayerKind playerKind, Position location, IBoard board)
+        {
+
         }
     }
 }
