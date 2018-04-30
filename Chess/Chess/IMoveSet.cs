@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public interface IPlayerSetUpProvider
+    public interface IMoveSet
     {
-        void Init(IBoard board, IPlayer player);
-
+        bool RunValidator(IBoard board, IPiece piece);
     }
 }

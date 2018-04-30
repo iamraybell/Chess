@@ -6,22 +6,26 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    class MainGameApp
+    public class MainGameApp
     {
 
 
         private IBoard curBoard;
         private IPiece curPiece;
-        private List<IPosition> possibleMoves;
+        public List<IPosition> possibleMoves;
+        List<IPlayer> players;
 
-        public MainGameApp(Board board)
+        public MainGameApp(Board board, IPlayerSetUpProvider topPlayerSetup, IPlayer player)
         {
+            List<IPlayer> players = new List<IPlayer>();
             curBoard = board;
+            topPlayerSetup.Init(curBoard, player);
+            players.Add(player);
         }
 
         private bool PositionValid(IPosition position)
         {
-            if(curBoard == null || position.Row >= curBoard.NumRows || position.Column >= curBoard.NumColumns)
+            if(curBoard == null || position.Row >= curBoard.NumRows || position.Column >= curBoard.NumColumns || position.Row < 0 || position.Column < 0)
             {
                 return false;
             }
@@ -37,7 +41,7 @@ namespace Chess
         }
 
 
-        private void GenerateMoves(IPosition position)
+        public void GenerateMoves(IPosition position)
         {
             if (!PositionValid(position))
             {
@@ -52,20 +56,25 @@ namespace Chess
 
             curPiece = curBoard.contents[position.Row, position.Column];
 
-            foreach(var move in curPiece.MoveSet)
+            foreach(var move in curPiece.MoveSet )
             {
                 int rowInQuestion = move.RowModifier + position.Row;
                 int columnInQuestion = move.ColumnModifier + position.Column;
                 IPosition positionToCheck = new Position(rowInQuestion, columnInQuestion);
-                var results = PositionValid(positionToCheck);
-                if (results == true && CheckMoveValid(curPiece, curBoard.contents[rowInQuestion, columnInQuestion]))
+                var positionValidResults = PositionValid(positionToCheck);
+                if(positionValidResults == true)
                 {
-                    possibleMoves.Add( positionToCheck);
-                    if (curPiece.Continuous == true)
+                    var resultsFromMoveValidator = move.RunValidator(curBoard, curPiece);
+                    if (resultsFromMoveValidator== true && CheckMoveValid(curPiece, curBoard.contents[rowInQuestion, columnInQuestion]) == true)
                     {
-                        ContinuousDirectionChecker(positionToCheck, move);
+                        possibleMoves.Add(positionToCheck);
+                        if (curPiece.Continuous == true)
+                        {
+                            ContinuousDirectionChecker(positionToCheck, move);
+                        }
                     }
                 }
+                
             }
 
         }

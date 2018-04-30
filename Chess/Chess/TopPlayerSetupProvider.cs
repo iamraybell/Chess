@@ -8,9 +8,18 @@ namespace Chess
 {
     public class TopPlayerSetupProvider: IPlayerSetUpProvider
     {
-        public TopPlayerSetupProvider(IBoard boardInput, IPlayer owner)
+        public TopPlayerSetupProvider()
         {
 
+        }
+        public void Init(IBoard boardInput, IPlayer owner)
+        {
+            PawnPositionSetup(boardInput, owner);
+            KnightPositionSetup(boardInput, owner);
+            BishopPositionSetup(boardInput, owner);
+            RookPositionSetup(boardInput, owner);
+            KingPositionSetup(boardInput, owner);
+            QueenPositionSetup(boardInput, owner);
         }
 
         public static List<MoveSet> PawnMoveSetSetup()
@@ -18,6 +27,8 @@ namespace Chess
             var pawnMoveSet1 = new MoveSet(1, 0, null);
             var pawnMoveSet2 = new MoveSet(1, -1, (IBoard board, IPiece piece) =>
             {
+
+
                 return board.contents[piece.Position.Row, piece.Position.Column - 1] != null
                   && board.contents[piece.Position.Row, piece.Position.Column - 1].Owner.Color != piece.Owner.Color;
             });
@@ -119,6 +130,56 @@ namespace Chess
             var RookPosition2 = new Position(0, curBoard.NumColumns - 1);
             var RookToAdd2 = new Piece(PieceType.Rook, RookMoveList, true, RookPosition1, owner);
             curBoard.contents[RookPosition2.Row, RookPosition2.Column] = RookToAdd2;
+
+        }
+        public static List<MoveSet> KingMoveSetSetup()
+        {
+
+            return new List<MoveSet>()
+            {
+                new MoveSet(-1, 0, null),
+                new MoveSet(0, 1, null),
+                new MoveSet(0, -1, null),
+                new MoveSet(1, 0,null),
+                new MoveSet(-1, -1, null),
+                new MoveSet(-1, 1, null),
+                new MoveSet(1, -1, null),
+                new MoveSet(1, 1, null),
+
+            };
+        }
+        public static void KingPositionSetup(IBoard curBoard, IPlayer owner)
+        {
+
+            var KingMoveList = KingMoveSetSetup();
+            var KingPosition1 = new Position(0, 4);
+            var KingToAdd = new Piece(PieceType.King, KingMoveList, false, KingPosition1, owner);
+            curBoard.contents[KingPosition1.Row, KingPosition1.Column] = KingToAdd;
+
+        }
+        public static List<MoveSet> QueenMoveSetSetup()
+        {
+
+            return new List<MoveSet>()
+            {
+                new MoveSet(-1, 0, null),
+                new MoveSet(0, 1, null),
+                new MoveSet(0, -1, null),
+                new MoveSet(1, 0,null),
+                new MoveSet(-1, -1, null),
+                new MoveSet(-1, 1, null),
+                new MoveSet(1, -1, null),
+                new MoveSet(1, 1, null),
+
+            };
+        }
+        public static void QueenPositionSetup(IBoard curBoard, IPlayer owner)
+        {
+
+            var QueenMoveList = QueenMoveSetSetup();
+            var QueenPosition1 = new Position(0, 3);
+            var QueenToAdd = new Piece(PieceType.Queen, QueenMoveList, true, QueenPosition1, owner);
+            curBoard.contents[QueenPosition1.Row, QueenPosition1.Column] = QueenToAdd;
 
         }
     }

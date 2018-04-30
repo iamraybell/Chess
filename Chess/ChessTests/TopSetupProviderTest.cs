@@ -61,6 +61,30 @@ namespace ChessTests
 
 
         }
+        [TestMethod]
+        public void TestKingPositionSetup()
+        {
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
+            var myBoard = new Board();
+
+            TopPlayerSetupProvider.KingPositionSetup(myBoard, myOwner);
+
+
+            Assert.AreEqual(PieceType.King, myBoard.contents[0, 4].PieceType);
+
+
+
+        }
+        [TestMethod]
+        public void TestQueenPositionSetup()
+        {
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
+            var myBoard = new Board();
+
+            TopPlayerSetupProvider.QueenPositionSetup(myBoard, myOwner);
+            Assert.AreEqual(PieceType.Queen, myBoard.contents[0, 3].PieceType);
+        }
+
 
 
     }

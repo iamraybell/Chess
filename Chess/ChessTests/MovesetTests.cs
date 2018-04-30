@@ -27,7 +27,7 @@ namespace ChessTests
             MockBoard.Setup(x => x.NumRows).Returns(4);
             var myMoveset = new MoveSet( -1,0, (IBoard board, IPiece piece)=> { return board.NumRows > 2; });
 
-            var results = myMoveset.Validator(MockBoard.Object, MockPiece.Object);
+            var results = myMoveset.RunValidator(MockBoard.Object, MockPiece.Object);
 
             Assert.AreEqual(expectedOutcome, results);
 
@@ -41,7 +41,21 @@ namespace ChessTests
             MockBoard.Setup(x => x.NumRows).Returns(4);
             var myMoveset = new MoveSet(-1, 0, (IBoard board, IPiece piece) => { return board.NumRows > 5; });
 
-            var results = myMoveset.Validator(MockBoard.Object, MockPiece.Object);
+            var results = myMoveset.RunValidator(MockBoard.Object, MockPiece.Object);
+
+            Assert.AreEqual(expectedOutcome, results);
+
+        }
+        [TestMethod]
+        public void TestMoveSetValidatorReturnsFalseWhenNull()
+        {
+            var expectedOutcome = true;
+            var MockBoard = new Mock<IBoard>(MockBehavior.Strict);
+            var MockPiece = new Mock<IPiece>(MockBehavior.Strict);
+            MockBoard.Setup(x => x.NumRows).Returns(4);
+            var myMoveset = new MoveSet(-1, 0, null);
+
+            var results = myMoveset.RunValidator(MockBoard.Object, MockPiece.Object);
 
             Assert.AreEqual(expectedOutcome, results);
 

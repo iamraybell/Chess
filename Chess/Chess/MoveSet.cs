@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class MoveSet 
+    public class MoveSet : IMoveSet
     {
         public delegate bool validatorFunction(IBoard board, IPiece piece);
-        public validatorFunction Validator{ get; }
+        private validatorFunction Validator{ get; }
         public int RowModifier{ get; }
         public int ColumnModifier{ get; }
 
@@ -20,5 +20,14 @@ namespace Chess
             Validator = validator;
         }
 
+        public bool RunValidator(IBoard board, IPiece piece)
+        {
+            if(Validator == null)
+            {
+                return true;
+            }
+            bool resultsFromValidator = Validator(board, piece);
+            return resultsFromValidator;
+        }
     }
 }
