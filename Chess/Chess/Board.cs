@@ -8,11 +8,13 @@ namespace Chess
 {
     public class Board : IBoard
     {
-        public int NumRow { get; }
+        public int NumRows { get;  }
         public int NumColumns { get; }
 
-        G
+        public List<IMoveSet> GetPossibleMoves(IPiece Piece)
+        {
 
-
+            throw new NotImplementedException();
+        }
     }
 }
