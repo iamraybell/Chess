@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class MoveSet
+    public class MoveSet 
     {
         public delegate bool validatorFunction(IBoard board);
         public validatorFunction Validator{ get; }

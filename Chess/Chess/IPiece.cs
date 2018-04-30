@@ -7,7 +7,7 @@ namespace Chess
 
         bool Continuous { get; }
         PieceType PieceType { get; }
-        List<IMoveSet> MoveSet{ get; }
+        List<MoveSet> MoveSet{ get; }
         IOwner Owner { get; }
 
         

@@ -11,7 +11,7 @@ namespace ChessTests
      [TestMethod]
      public void TestPieceConstructor()
         {
-            var myPawn = new Piece(PieceType.Pawn,new List<IMoveSet>(), true);
+            var myPawn = new Piece(PieceType.Pawn,new List<MoveSet>(), true);
 
             Assert.AreEqual(PieceType.Pawn, myPawn.PieceType);
         }

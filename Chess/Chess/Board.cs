@@ -10,8 +10,10 @@ namespace Chess
     {
         public int NumRows { get;  }
         public int NumColumns { get; }
+        public IPiece[,] contents { get; }
 
-        public List<IMoveSet> GetPossibleMoves(IPiece Piece)
+
+        public List<MoveSet> GetPossibleMoves(IPiece Piece)
         {
 
             throw new NotImplementedException();
