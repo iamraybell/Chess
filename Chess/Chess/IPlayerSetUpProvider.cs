@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public interface IPosition
+    public interface IPlayerSetUpProvider
     {
-         int Row { get; }
-         int Column { get; }
+
     }
 }

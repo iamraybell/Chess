@@ -1,6 +1,6 @@
 ﻿namespace Chess
 {
-    public interface IOwner
+    public interface IPlayer
     {
         ColorType Color { get; }
         string Name { get; }

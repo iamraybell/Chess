@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    class Position: IPosition
+    public class Position: IPosition
     {
         public Position(int row , int column)
         {

@@ -61,9 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OwnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PieceTests.cs" />
     <Compile Include="MovesetTests.cs" />
+    <Compile Include="TopSetupProviderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

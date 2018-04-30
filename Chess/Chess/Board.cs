@@ -13,6 +13,15 @@ namespace Chess
         public IPiece[,] contents { get; }
 
 
+        public Board()
+        {
+            this.NumColumns = 8;
+            this.NumRows = 8;
+            this.contents = new IPiece[NumRows,NumColumns];
+        }
+        
+
+
         public List<MoveSet> GetPossibleMoves(IPiece Piece)
         {
 

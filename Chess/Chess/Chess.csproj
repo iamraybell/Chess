@@ -44,19 +44,22 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="ColorType.cs" />
+    <Compile Include="IPlayerSetUpProvider.cs" />
     <Compile Include="IPosition.cs" />
     <Compile Include="MainGameApp.cs" />
     <Compile Include="Interface1.cs" />
-    <Compile Include="IOwner.cs" />
+    <Compile Include="IPlayer.cs" />
     <Compile Include="IPiece.cs" />
     <Compile Include="IBoard.cs" />
     <Compile Include="MoveSet.cs" />
+    <Compile Include="HumanPlayer.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="PieceType.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Interface1.cs" />
+    <Compile Include="TopPlayerSetupProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -7,6 +7,7 @@ namespace Chess
         int NumColumns { get; }
         int NumRows { get; }
         IPiece[,] contents { get; }
+        
 
         List<MoveSet> GetPossibleMoves(IPiece Piece);
     }
