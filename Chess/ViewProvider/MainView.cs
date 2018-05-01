@@ -11,11 +11,18 @@ namespace ViewProvider
     {
         public  MainGameApp GameApp;
         public Dictionary<PieceType, string> whiteImages;
+        public List<IPosition> highlightedMoves;
         public MainView(MainGameApp gameApp)
         {
             GameApp = gameApp;
             whiteImages = new Dictionary<PieceType, string>();
-            whiteImages.Add(PieceType.Pawn, "♙");
+            whiteImages.Add(PieceType.Pawn, "\u2659");
+            whiteImages.Add(PieceType.King, "\u2654");
+            whiteImages.Add(PieceType.Queen, "\u2655");
+            whiteImages.Add(PieceType.Rook, "\u2656");
+            whiteImages.Add(PieceType.Bishop, "\u2657");
+            whiteImages.Add(PieceType.Knight, "\u2658");
+
         }
 
         public  static string GetName()
@@ -64,6 +71,8 @@ namespace ViewProvider
         }
         public void StartDraw()
         {
+            highlightedMoves = GameApp.GetPossibleMoves(2, 0);
+            
             for(var RowIdx = 0; RowIdx < GameApp.curBoard.NumRows; RowIdx++)
             {
                 for (var ColumnIdx = 0; ColumnIdx < GameApp.curBoard.NumColumns; ColumnIdx++)
@@ -81,16 +90,16 @@ namespace ViewProvider
 
         private void DrawPiece(IPiece piece)
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            
             if (piece == null)
             {
                 
-                Console.Write(" ");
+                Console.Write("  ");
                 
             }
-            else if (piece.PieceType == PieceType.Pawn)
+            else if(piece.Owner.Color == ColorType.White)
             {
-                Console.WriteLine(whiteImages[PieceType.Pawn]);
+                Console.Write(whiteImages[piece.PieceType]);
             }
             
         }

@@ -14,16 +14,17 @@ namespace ChessTests
             var expectedPostion1 = new Position(2, 0);
             var expectedPostion2 = new Position(2, 2);
             var expectedCount = 2;
-            MainGameApp myGameApp = new MainGameApp(new Board(), new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
-            myGameApp.GenerateMoves(new Position(0, 1));
+            var board = new Board();
+            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
+            board.GenerateMoves(new Position(0, 1));
 
 
-            var results = myGameApp.possibleMoves.Where(
+            var results = board.possibleMoves.Where(
                 x => x.Row == expectedPostion1.Row && x.Column == expectedPostion1.Column ||
                 x.Row == expectedPostion2.Row && x.Column == expectedPostion2.Column
                 ).ToList();
             Assert.AreEqual(expectedCount, results.Count);
-            Assert.AreEqual(expectedCount, myGameApp.possibleMoves.Count);
+            Assert.AreEqual(expectedCount, board.possibleMoves.Count);
 
         }
         [TestMethod]
@@ -31,10 +32,11 @@ namespace ChessTests
         {
 
             var expectedCount = 0;
-            MainGameApp myGameApp = new MainGameApp(new Board(), new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
-            myGameApp.GenerateMoves(new Position(0, 2));
+            var board = new Board();
+            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
+            board.GenerateMoves(new Position(0, 2));
 
-            var results = myGameApp.possibleMoves.Count;
+            var results = board.possibleMoves.Count;
             Assert.AreEqual(expectedCount, results);
 
         }

@@ -11,12 +11,12 @@ namespace ViewProvider
     {
         static void Main(string[] args)
         {
-            
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.ForegroundColor = ConsoleColor.Black;
             MainView.Welcome();
             var name = MainView.GetName();
             var color = MainView.GetColor();
             var curMainView = new MainView(new MainGameApp(new Board(), new TopPlayerSetupProvider(), new HumanPlayer(name, color)));
-            Console.WriteLine("\u2654");
             curMainView.StartDraw();
             Console.Read();
         }

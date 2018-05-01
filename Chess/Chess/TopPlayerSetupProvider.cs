@@ -27,17 +27,12 @@ namespace Chess
             var pawnMoveSet1 = new MoveSet(1, 0, null);
             var pawnMoveSet2 = new MoveSet(1, -1, (IBoard board, IPiece piece) =>
             {
-
-
-                return board.contents[piece.Position.Row, piece.Position.Column - 1] != null
-                  && board.contents[piece.Position.Row, piece.Position.Column - 1].Owner.Color != piece.Owner.Color;
+                return board.CheckSpaceforOpposingTeamPiece(new Position(piece.Position.Row + 1, piece.Position.Column - 1), piece); 
             });
-            var pawnMoveSet3 = new MoveSet(1, +1, (IBoard board, IPiece piece) =>
+            var pawnMoveSet3 = new MoveSet(1, 1, (IBoard board, IPiece piece) =>
             {
-                // Write this logic in plain English and then create appropriate helper functions.
-                // 
-                return board.contents[piece.Position.Row, piece.Position.Column + 1] != null
-                  && board.contents[piece.Position.Row, piece.Position.Column + 1].Owner.Color != piece.Owner.Color;
+                return board.CheckSpaceforOpposingTeamPiece(new Position(piece.Position.Row + 1, piece.Position.Column + 1), piece);
+                ;
             });
             var pawnMoveList = new List<MoveSet>()
             {
