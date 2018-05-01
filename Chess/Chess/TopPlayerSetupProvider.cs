@@ -34,6 +34,8 @@ namespace Chess
             });
             var pawnMoveSet3 = new MoveSet(1, +1, (IBoard board, IPiece piece) =>
             {
+                // Write this logic in plain English and then create appropriate helper functions.
+                // 
                 return board.contents[piece.Position.Row, piece.Position.Column + 1] != null
                   && board.contents[piece.Position.Row, piece.Position.Column + 1].Owner.Color != piece.Owner.Color;
             });

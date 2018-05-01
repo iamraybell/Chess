@@ -10,8 +10,12 @@ namespace Chess
     {
 
 
-        private IBoard curBoard;
+        public  IBoard curBoard;
         private IPiece curPiece;
+        private static int playerCap  = 1;
+        public int PlayerCap {
+            get { return playerCap; }
+                }
         public List<IPosition> possibleMoves;
         List<IPlayer> players;
 
