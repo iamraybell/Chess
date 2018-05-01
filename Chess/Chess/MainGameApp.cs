@@ -15,7 +15,7 @@ namespace Chess
         public int PlayerCap {
             get { return playerCap; }
                 }
-        public List<IPosition> possibleMoves;
+        public List<Position> possibleMoves;
         List<IPlayer> players;
 
         public MainGameApp(Board board, IPlayerSetUpProvider topPlayerSetup, IPlayer player)

@@ -11,9 +11,9 @@ namespace ChessTests
         public void TestOwnerTest()
         {
             var expectedString ="Ray";
-            var expectedColor = ColorType.Black;
+            var expectedColor = PlayerKind.Black;
 
-            var myOwner = new HumanPlayer("Ray", ColorType.Black);
+            var myOwner = new HumanPlayer("Ray", PlayerKind.Black);
 
 
             Assert.AreEqual(expectedColor, myOwner.Color);

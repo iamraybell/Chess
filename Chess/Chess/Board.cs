@@ -11,7 +11,7 @@ namespace Chess
         public int NumRows { get;  }
         public int NumColumns { get; }
         public IPiece[,] contents { get; }
-        public List<IPosition> possibleMoves;
+        public List<Position> possibleMoves;
         IPiece curPiece;
 
 
@@ -24,12 +24,12 @@ namespace Chess
         
 
 
-        public List<IPosition> GetPossibleMoves(IPiece Piece)
+        public List<Position> GetPossibleMoves(IPiece Piece)
         {
 
             return possibleMoves;
         }
-        private bool PositionValid(IPosition position)
+        private bool PositionValid(Position position)
         {
             if ( position.Row >= NumRows || position.Column >= NumColumns || position.Row < 0 || position.Column < 0)
             {
@@ -47,13 +47,13 @@ namespace Chess
         }
 
 
-        public void GenerateMoves(IPosition position)
+        public void GenerateMoves(Position position)
         {
             if (!PositionValid(position))
             {
                 throw new IndexOutOfRangeException();
             }
-            possibleMoves = new List<IPosition>();
+            possibleMoves = new List<Position>();
 
             if ( contents[position.Row, position.Column] == null)
             {
@@ -66,7 +66,7 @@ namespace Chess
             {
                 int rowInQuestion = move.RowModifier + position.Row;
                 int columnInQuestion = move.ColumnModifier + position.Column;
-                IPosition positionToCheck = new Position(rowInQuestion, columnInQuestion);
+                Position positionToCheck = new Position(rowInQuestion, columnInQuestion);
                 var positionValidResults = PositionValid(positionToCheck);
                 if (positionValidResults == true)
                 {
@@ -85,7 +85,7 @@ namespace Chess
 
         }
 
-        private void ContinuousDirectionChecker(IPosition position, MoveSet move)
+        private void ContinuousDirectionChecker(Position position, MoveSet move)
         {
             var nextPositionToCheck = new Position(position.Row + move.RowModifier, position.Column + move.ColumnModifier);
 

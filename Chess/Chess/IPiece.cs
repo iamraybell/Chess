@@ -9,7 +9,7 @@ namespace Chess
         PieceType PieceType { get; }
         List<MoveSet> MoveSet{ get; }
         IPlayer Owner { get; }
-        IPosition Position { get; set; }
+        Position Position { get; set; }
         
         
         

@@ -9,7 +9,7 @@ namespace Chess
         IPiece[,] contents { get; }
         
 
-        List<IPosition> GetPossibleMoves(IPiece Piece);
+        List<Position> GetPossibleMoves(IPiece Piece);
         bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece);
     }
 }

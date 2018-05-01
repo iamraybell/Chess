@@ -1,0 +1,22 @@
+﻿# Design
+1. Do not interfaces if the interface has only property getters.
+
+# Coding style
+We usually use the following coding style:
+1. Class structure
+- fields
+- properties
+- constructors
+- factory methods
+- public methods
+- internal/private methods
+
+2. No public fields. (unless the type is a struct with all public fields).
+
+2. Spacing
+Always add a blank line between methods, types etc.
+
+
+# Some design considerations
+## Interface vs. Abstract base class
+If you could think of a basic functionality - abstract base class. If you could think of a class that implements more than one "concept" then the concept should be modeled with an interface.

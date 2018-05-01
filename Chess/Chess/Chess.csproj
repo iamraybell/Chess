@@ -43,10 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="ColorType.cs" />
+    <Compile Include="PlayerKind.cs" />
     <Compile Include="IMoveSet.cs" />
     <Compile Include="IPlayerSetUpProvider.cs" />
-    <Compile Include="IPosition.cs" />
     <Compile Include="MainGameApp.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="IPlayer.cs" />
@@ -64,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SuggestionsToRemember.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
