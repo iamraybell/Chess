@@ -28,7 +28,10 @@ namespace Chess
             GenerateMoves(position);
             return possibleMoves;
         }
-
+        public bool SpaceIsEmpty(Position position)
+        {
+            return PositionValid(position) && contents[position.Row, position.Column] == null;
+        }
 
         public void GenerateMoves(Position position)
         {
@@ -70,7 +73,7 @@ namespace Chess
 
         public bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece)
         {
-            return this.contents[position.Row, position.Column] != null
+            return PositionValid(position) && this.contents[position.Row, position.Column] != null
                    && this.contents[position.Row, position.Column].Owner.Color != piece.Owner.Color;
         }
 
@@ -103,7 +106,5 @@ namespace Chess
             }
             return false;
         }
-
-
     }
 }

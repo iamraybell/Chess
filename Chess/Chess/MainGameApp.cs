@@ -18,7 +18,7 @@ namespace Chess
          }
         
 
-        public MainGameApp(Board board, IPlayerSetUpProvider topPlayerSetup, IPlayer player)
+        public MainGameApp(Board board, IPieceRulesProvider topPlayerSetup, IPlayer player)
         {
             List<IPlayer> players = new List<IPlayer>();
             curBoard = board;

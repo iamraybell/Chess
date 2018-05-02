@@ -10,5 +10,6 @@ namespace Chess
         
         List<Position> GetPossibleMoves(Position position);
         bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece);
+        bool SpaceIsEmpty(Position position);
     }
 }

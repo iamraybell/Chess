@@ -2,7 +2,7 @@
 {
     public interface IPlayer
     {
-        PlayerKind Color { get; }
+        ColorType Color { get; }
         string Name { get; }
     }
 }

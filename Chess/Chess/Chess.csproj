@@ -43,9 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="PlayerKind.cs" />
+    <Compile Include="ColorType.cs" />
     <Compile Include="IMoveSet.cs" />
-    <Compile Include="IPlayerSetUpProvider.cs" />
+    <Compile Include="IPieceRulesProvider.cs" />
     <Compile Include="MainGameApp.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="IPlayer.cs" />

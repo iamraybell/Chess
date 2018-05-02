@@ -17,5 +17,10 @@ namespace Chess
             Row = row;
             Column = column;
         }
+
+        public Position Move(int rowModifier, int columnModifier)
+        {
+            return new Position(Row + rowModifier, Column + columnModifier);
+        }
     }
 }

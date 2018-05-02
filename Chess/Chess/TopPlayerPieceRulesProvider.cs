@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class TopPlayerPieceRulesProvider: IPlayerSetUpProvider
+    public class TopPlayerPieceRulesProvider: IPieceRulesProvider
     {
         public TopPlayerPieceRulesProvider()
         {
@@ -24,14 +24,17 @@ namespace Chess
 
         public static List<MoveSet> PawnMoveSetSetup()
         {
-            var pawnMoveSet1 = new MoveSet(1, 0, null);
+            var pawnMoveSet1 = new MoveSet(1, 0, (IBoard board, IPiece piece) =>
+            {
+                return board.SpaceIsEmpty(piece.Position.Move(1, 0));
+            });
             var pawnMoveSet2 = new MoveSet(1, -1, (IBoard board, IPiece piece) =>
             {
-                return board.CheckSpaceforOpposingTeamPiece(new Position(piece.Position.Row + 1, piece.Position.Column - 1), piece); 
+                return board.CheckSpaceforOpposingTeamPiece(piece.Position.Move(1, -1), piece); 
             });
             var pawnMoveSet3 = new MoveSet(1, 1, (IBoard board, IPiece piece) =>
             {
-                return board.CheckSpaceforOpposingTeamPiece(new Position(piece.Position.Row + 1, piece.Position.Column + 1), piece);
+                return board.CheckSpaceforOpposingTeamPiece(piece.Position.Move(1, 1), piece);
                 ;
             });
             var pawnMoveList = new List<MoveSet>()
