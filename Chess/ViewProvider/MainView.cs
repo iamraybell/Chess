@@ -9,9 +9,10 @@ namespace ViewProvider
 {
     class MainView: IViewProvider
     {
+        public List<Position> highlightedMoves;
         public  MainGameApp GameApp;
         public Dictionary<PieceType, string> whiteImages;
-        public List<Position> highlightedMoves;
+
         public MainView(MainGameApp gameApp)
         {
             GameApp = gameApp;
@@ -42,7 +43,7 @@ namespace ViewProvider
             return playerName;
         }
 
-        internal static PlayerKind GetColor()
+        public static PlayerKind GetColor()
         {
             
             string color = string.Empty;

@@ -26,6 +26,9 @@ namespace Chess
             players.Add(player);
         }
 
-
+        public List<Position> GetPossibleMoves(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
