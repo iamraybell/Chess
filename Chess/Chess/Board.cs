@@ -8,13 +8,12 @@ namespace Chess
 {
     public class Board : IBoard
     {
+        public List<Position> possibleMoves;
+        IPiece curPiece;
         public int NumRows { get;  }
         public int NumColumns { get; }
         public IPiece[,] contents { get; }
-        public List<Position> possibleMoves;
-        IPiece curPiece;
-
-
+        
         public Board()
         {
             this.NumColumns = 8;

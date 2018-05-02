@@ -8,12 +8,10 @@ namespace Chess
 {
     public abstract class Piece //: IPiece
     {
+        private List<MoveSet> baseMoveSet;
         public PlayerKind PlayerKind { get; }
         public PieceType PieceType { get; private set; }
-
-        private List<MoveSet> baseMoveSet;
-
-        
+ 
         //public bool Continuous { get; private set; }
         // public IPlayer Owner { get; }
         // public Position Position { get; set; }

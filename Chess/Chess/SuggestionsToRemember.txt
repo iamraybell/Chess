@@ -26,7 +26,6 @@ If you could think of a basic functionality - abstract base class. If you could 
 A comment should tell something about the code that is not obvious from the code itself.
 
 
-
 # Questions for you:)
 1. What the difference between these two property declarations?
 public PieceType PieceType { get; }

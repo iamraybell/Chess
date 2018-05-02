@@ -15,7 +15,7 @@ namespace ChessTests
             var expectedPostion2 = new Position(2, 2);
             var expectedCount = 2;
             var board = new Board();
-            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", PlayerKind.Black));
+            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
             board.GenerateMoves(new Position(0, 1));
 
 
@@ -33,7 +33,7 @@ namespace ChessTests
 
             var expectedCount = 0;
             var board = new Board();
-            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", PlayerKind.Black));
+            MainGameApp myGameApp = new MainGameApp(board, new TopPlayerSetupProvider(), new HumanPlayer("ray", ColorType.Black));
             board.GenerateMoves(new Position(0, 2));
 
             var results = board.possibleMoves.Count;

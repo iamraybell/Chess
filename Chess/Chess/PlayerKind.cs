@@ -1,6 +1,6 @@
 ﻿namespace Chess
 {
-    public enum PlayerKind
+    public enum ColorType
     {
         White, 
         Black

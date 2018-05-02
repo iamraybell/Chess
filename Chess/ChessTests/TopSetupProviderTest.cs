@@ -10,7 +10,7 @@ namespace ChessTests
         [TestMethod]
         public void TestPawnPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
             TopPlayerSetupProvider.PawnPositionSetup(myBoard, myOwner);
             for (var idx = 0; idx < myBoard.NumColumns; idx++)
@@ -22,7 +22,7 @@ namespace ChessTests
         [TestMethod]
         public void TestBishopPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
 
             TopPlayerSetupProvider.BishopPositionSetup(myBoard, myOwner);
@@ -36,7 +36,7 @@ namespace ChessTests
         [TestMethod]
         public void TestKnightPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
 
             TopPlayerSetupProvider.KnightPositionSetup(myBoard, myOwner);
@@ -50,7 +50,7 @@ namespace ChessTests
         [TestMethod]
         public void TestRookPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
 
             TopPlayerSetupProvider.RookPositionSetup(myBoard, myOwner);
@@ -64,7 +64,7 @@ namespace ChessTests
         [TestMethod]
         public void TestKingPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
 
             TopPlayerSetupProvider.KingPositionSetup(myBoard, myOwner);
@@ -78,7 +78,7 @@ namespace ChessTests
         [TestMethod]
         public void TestQueenPositionSetup()
         {
-            var myOwner = new HumanPlayer("ray", PlayerKind.Black);
+            var myOwner = new HumanPlayer("ray", ColorType.Black);
             var myBoard = new Board();
 
             TopPlayerSetupProvider.QueenPositionSetup(myBoard, myOwner);
