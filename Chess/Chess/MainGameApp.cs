@@ -12,6 +12,7 @@ namespace Chess
         List<IPlayer> players;
         public  IBoard curBoard;
         private static int playerCap  = 1;
+
         public int PlayerCap {
             get { return playerCap; }
          }

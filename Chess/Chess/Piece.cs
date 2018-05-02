@@ -11,8 +11,7 @@ namespace Chess
 
         
         public List<MoveSet> MoveSet { get; }
-
-        public PieceType PieceType { get; private set; }
+        public PieceType PieceType { get;}
         public bool Continuous { get; private set; }
         public IPlayer Owner { get; }
         public Position Position { get; set; }

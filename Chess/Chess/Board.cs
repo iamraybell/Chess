@@ -11,6 +11,7 @@ namespace Chess
 
         public List<Position> possibleMoves;
         IPiece curPiece;
+
         public int NumRows { get;  }
         public int NumColumns { get; }
         public IPiece[,] contents { get; }
