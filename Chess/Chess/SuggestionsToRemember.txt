@@ -20,3 +20,26 @@ Always add a blank line between methods, types etc.
 # Some design considerations
 ## Interface vs. Abstract base class
 If you could think of a basic functionality - abstract base class. If you could think of a class that implements more than one "concept" then the concept should be modeled with an interface.
+
+
+# Comments
+A comment should tell something about the code that is not obvious from the code itself.
+
+
+
+# Questions for you:)
+1. What the difference between these two property declarations?
+public PieceType PieceType { get; }
+public PieceType PieceType { get; private set; }
+no difference
+
+2. What are the differences between interfaces and abstract classes in C#?
+interfaces are just contracts, and contain no physical code. 
+Abstract classes can code code that can be overrided by subclasses. Keep in mind that classes can inherit from one class, but unlimted* interfaces. 
+
+
+3. Different visibility rules in C#
+public =  accessible to all. 
+private = only accessible by code in itself. 
+internal = only can be accessed by anything in same project/aasembly?
+protected = only acessible to code in class itself or derived classes. 

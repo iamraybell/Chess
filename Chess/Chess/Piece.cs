@@ -6,31 +6,37 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class Piece : IPiece
+    public abstract class Piece //: IPiece
     {
+        public PlayerKind PlayerKind { get; }
+        public PieceType PieceType { get; private set; }
+
+        private List<MoveSet> baseMoveSet;
 
         
-         public List<MoveSet> MoveSet { get; }
+        //public bool Continuous { get; private set; }
+        // public IPlayer Owner { get; }
+        // public Position Position { get; set; }
 
-        public PieceType PieceType { get; private set; }
-        public bool Continuous { get; private set; }
-        public IPlayer Owner { get; }
-        public Position Position { get; set; }
-
-        /// <summary>
-        /// Constructor. Takes in the  pieceType, moveSet, and continuous.
-        /// </summary>
-        public Piece(PieceType pieceType, List<MoveSet> moveSet, bool continuous, Position position, IPlayer owner)
+        public Piece(PieceType pieceType, PlayerKind playerKind, List<MoveSet> moveSet)
         {
-            this.PieceType = pieceType;
-            this.MoveSet = moveSet;
-            this.Continuous = continuous;
-            Position = position;
-            Owner = owner;
-        }
-         
+            PieceType = pieceType;
+            baseMoveSet = moveSet;
 
+            //this.Continuous = continuous;
+            // Position = position;
+            // Owner = owner;
+        }
+
+
+        public virtual List<MoveSet> GetPossibleMoves(Board board)
+        {
+            return baseMoveSet;
+        }
+    }
+
+    public class Pawn : Piece
+    {
 
     }
-    
 }

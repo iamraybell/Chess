@@ -22,13 +22,11 @@ namespace Chess
             this.contents = new IPiece[NumRows,NumColumns];
         }
         
-
-
         public List<Position> GetPossibleMoves(IPiece Piece)
         {
-
             return possibleMoves;
         }
+
         private bool PositionValid(Position position)
         {
             if ( position.Row >= NumRows || position.Column >= NumColumns || position.Row < 0 || position.Column < 0)
@@ -37,6 +35,7 @@ namespace Chess
             }
             return true;
         }
+
         private bool CheckMoveValid(IPiece curPiece, IPiece pieceAtPosition)
         {
             if (pieceAtPosition == null || pieceAtPosition.Owner != curPiece.Owner)
@@ -45,7 +44,6 @@ namespace Chess
             }
             return false;
         }
-
 
         public void GenerateMoves(Position position)
         {
