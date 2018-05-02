@@ -72,7 +72,7 @@ namespace ViewProvider
         }
         public void StartDraw()
         {
-            highlightedMoves = GameApp.GetPossibleMoves(2, 0);
+            highlightedMoves = GameApp.GetPossibleMoves( new Position(2,0));
             
             for(var RowIdx = 0; RowIdx < GameApp.curBoard.NumRows; RowIdx++)
             {

@@ -8,15 +8,14 @@ namespace Chess
 {
     public class MainGameApp
     {
-
-
+        public List<Position> possibleMoves;
+        List<IPlayer> players;
         public  IBoard curBoard;
         private static int playerCap  = 1;
         public int PlayerCap {
             get { return playerCap; }
-                }
-        public List<Position> possibleMoves;
-        List<IPlayer> players;
+         }
+        
 
         public MainGameApp(Board board, IPlayerSetUpProvider topPlayerSetup, IPlayer player)
         {
@@ -26,9 +25,9 @@ namespace Chess
             players.Add(player);
         }
 
-        public List<Position> GetPossibleMoves(int v1, int v2)
+        public List<Position> GetPossibleMoves(Position position)
         {
-            throw new NotImplementedException();
+            return  curBoard.GetPossibleMoves(position);
         }
     }
 }

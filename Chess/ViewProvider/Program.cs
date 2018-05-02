@@ -16,7 +16,7 @@ namespace ViewProvider
             MainView.Welcome();
             var name = MainView.GetName();
             var color = MainView.GetColor();
-            var curMainView = new MainView(new MainGameApp(new Board(), new TopPlayerSetupProvider(), new HumanPlayer(name, color)));
+            var curMainView = new MainView(new MainGameApp(new Board(), new TopPlayerPieceRulesProvider(), new HumanPlayer(name, color)));
             curMainView.StartDraw();
             Console.Read();
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class TopPlayerSetupProvider: IPlayerSetUpProvider
+    public class TopPlayerPieceRulesProvider: IPlayerSetUpProvider
     {
-        public TopPlayerSetupProvider()
+        public TopPlayerPieceRulesProvider()
         {
 
         }

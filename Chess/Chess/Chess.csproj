@@ -59,7 +59,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Interface1.cs" />
-    <Compile Include="TopPlayerSetupProvider.cs" />
+    <Compile Include="TopPlayerPieceRulesProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

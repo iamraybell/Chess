@@ -8,10 +8,11 @@ namespace Chess
 {
     public class MoveSet : IMoveSet
     {
-        public delegate bool validatorFunction(IBoard board, IPiece piece);
+        
         private validatorFunction Validator{ get; }
         public int RowModifier{ get; }
-        public int ColumnModifier{ get; }
+        public int ColumnModifier { get; }
+        public delegate bool validatorFunction(IBoard board, IPiece piece);
 
         public MoveSet(int rowModifier, int columnModifier, validatorFunction validator)
         {

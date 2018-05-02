@@ -12,7 +12,7 @@ namespace ChessTests
         {
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
-            TopPlayerSetupProvider.PawnPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.PawnPositionSetup(myBoard, myOwner);
             for (var idx = 0; idx < myBoard.NumColumns; idx++)
             {
                 Assert.AreEqual(PieceType.Pawn, myBoard.contents[1, idx].PieceType);
@@ -25,7 +25,7 @@ namespace ChessTests
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
 
-            TopPlayerSetupProvider.BishopPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.BishopPositionSetup(myBoard, myOwner);
 
 
             Assert.AreEqual(PieceType.Bishop, myBoard.contents[0, 2].PieceType);
@@ -39,7 +39,7 @@ namespace ChessTests
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
 
-            TopPlayerSetupProvider.KnightPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.KnightPositionSetup(myBoard, myOwner);
 
 
             Assert.AreEqual(PieceType.Knight, myBoard.contents[0, 1].PieceType);
@@ -53,7 +53,7 @@ namespace ChessTests
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
 
-            TopPlayerSetupProvider.RookPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.RookPositionSetup(myBoard, myOwner);
 
 
             Assert.AreEqual(PieceType.Rook, myBoard.contents[0, 0].PieceType);
@@ -67,7 +67,7 @@ namespace ChessTests
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
 
-            TopPlayerSetupProvider.KingPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.KingPositionSetup(myBoard, myOwner);
 
 
             Assert.AreEqual(PieceType.King, myBoard.contents[0, 4].PieceType);
@@ -81,7 +81,7 @@ namespace ChessTests
             var myOwner = new HumanPlayer("ray", PlayerKind.Black);
             var myBoard = new Board();
 
-            TopPlayerSetupProvider.QueenPositionSetup(myBoard, myOwner);
+            TopPlayerPieceRulesProvider.QueenPositionSetup(myBoard, myOwner);
             Assert.AreEqual(PieceType.Queen, myBoard.contents[0, 3].PieceType);
         }
 

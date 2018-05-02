@@ -8,12 +8,12 @@ namespace Chess
 {
     public class Board : IBoard
     {
+
+        public List<Position> possibleMoves;
+        IPiece curPiece;
         public int NumRows { get;  }
         public int NumColumns { get; }
         public IPiece[,] contents { get; }
-        public List<Position> possibleMoves;
-        IPiece curPiece;
-
 
         public Board()
         {
@@ -22,28 +22,10 @@ namespace Chess
             this.contents = new IPiece[NumRows,NumColumns];
         }
         
-
-
-        public List<Position> GetPossibleMoves(IPiece Piece)
+        public List<Position> GetPossibleMoves(Position position)
         {
-
+            GenerateMoves(position);
             return possibleMoves;
-        }
-        private bool PositionValid(Position position)
-        {
-            if ( position.Row >= NumRows || position.Column >= NumColumns || position.Row < 0 || position.Column < 0)
-            {
-                return false;
-            }
-            return true;
-        }
-        private bool CheckMoveValid(IPiece curPiece, IPiece pieceAtPosition)
-        {
-            if (pieceAtPosition == null || pieceAtPosition.Owner != curPiece.Owner)
-            {
-                return true;
-            }
-            return false;
         }
 
 
@@ -85,6 +67,12 @@ namespace Chess
 
         }
 
+        public bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece)
+        {
+            return this.contents[position.Row, position.Column] != null
+                   && this.contents[position.Row, position.Column].Owner.Color != piece.Owner.Color;
+        }
+
         private void ContinuousDirectionChecker(Position position, MoveSet move)
         {
             var nextPositionToCheck = new Position(position.Row + move.RowModifier, position.Column + move.ColumnModifier);
@@ -97,10 +85,24 @@ namespace Chess
             return;
         }
 
-        public bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece)
+        private bool PositionValid(Position position)
         {
-            return this.contents[position.Row, position.Column] != null
-                   && this.contents[position.Row, position.Column].Owner.Color != piece.Owner.Color;
+            if (position.Row >= NumRows || position.Column >= NumColumns || position.Row < 0 || position.Column < 0)
+            {
+                return false;
+            }
+            return true;
         }
+
+        private bool CheckMoveValid(IPiece curPiece, IPiece pieceAtPosition)
+        {
+            if (pieceAtPosition == null || pieceAtPosition.Owner != curPiece.Owner)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
     }
 }
