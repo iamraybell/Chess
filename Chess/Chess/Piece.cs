@@ -10,7 +10,7 @@ namespace Chess
     {
         private List<MoveSet> baseMoveSet;
         public PlayerKind PlayerKind { get; }
-        public PieceType PieceType { get; private set; }
+        public PieceType PieceType { get;}
  
         //public bool Continuous { get; private set; }
         // public IPlayer Owner { get; }
@@ -25,7 +25,6 @@ namespace Chess
             // Position = position;
             // Owner = owner;
         }
-
 
         public virtual List<MoveSet> GetPossibleMoves(Board board)
         {

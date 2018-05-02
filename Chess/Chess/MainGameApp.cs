@@ -8,13 +8,11 @@ namespace Chess
 {
     public class MainGameApp
     {
-
-
         public  IBoard curBoard;
         private static int playerCap  = 1;
         public int PlayerCap {
             get { return playerCap; }
-                }
+         }
         public List<Position> possibleMoves;
         List<IPlayer> players;
 

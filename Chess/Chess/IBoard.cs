@@ -8,7 +8,6 @@ namespace Chess
         int NumRows { get; }
         IPiece[,] contents { get; }
         
-
         List<Position> GetPossibleMoves(IPiece Piece);
         bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece);
     }

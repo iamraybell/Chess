@@ -10,10 +10,6 @@ namespace Chess
         List<MoveSet> MoveSet{ get; }
         IPlayer Owner { get; }
         Position Position { get; set; }
-        
-        
-        
-
-        
+ 
     }
 }

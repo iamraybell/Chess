@@ -8,8 +8,8 @@ namespace Chess
 {
     public class HumanPlayer : IPlayer
     {
-        public ColorType Color { get; private set; }
-        public string Name { get; private set; }
+        public ColorType Color { get;}
+        public string Name { get; }
 
         public HumanPlayer(string name,ColorType color)
         {
