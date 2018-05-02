@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public interface IMoveSet
-    {
-        bool RunValidator(IBoard board, IPiece piece);
-    }
+    //public interface IMoveSet
+    //{
+    //    bool RunValidator(IBoard board, IPiece piece);
+    //}
 }

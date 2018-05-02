@@ -11,12 +11,12 @@ namespace ChessTests
         public void TestOwnerTest()
         {
             var expectedString ="Ray";
-            var expectedColor = ColorType.Black;
+            var expectedColor = PlayerKind.Black;
 
-            var myOwner = new HumanPlayer("Ray", ColorType.Black);
+            var myOwner = new HumanPlayer("Ray", PlayerKind.Black);
 
 
-            Assert.AreEqual(expectedColor, myOwner.Color);
+            Assert.AreEqual(expectedColor, myOwner.PlayerKind);
             Assert.AreEqual(expectedString, myOwner.Name);
         }
     }

@@ -43,7 +43,7 @@ namespace ViewProvider
             return playerName;
         }
 
-        internal static ColorType GetColor()
+        internal static PlayerKind GetColor()
         {
             
             string color = string.Empty;
@@ -54,15 +54,15 @@ namespace ViewProvider
                 color = color.ToString().ToLower();
                 if (color == "white")
                 {
-                    return ColorType.White;
+                    return PlayerKind.White;
                 }
                 if (color == "black")
                 {
-                    return ColorType.Black;
+                    return PlayerKind.Black;
                 }
             }
 
-            return ColorType.Black;
+            return PlayerKind.Black;
         }
 
         public static void Welcome()
@@ -98,7 +98,7 @@ namespace ViewProvider
                 Console.Write("  ");
                 
             }
-            else if(piece.Owner.Color == ColorType.White)
+            else if(piece.Owner.PlayerKind == PlayerKind.White)
             {
                 Console.Write(whiteImages[piece.PieceType]);
             }

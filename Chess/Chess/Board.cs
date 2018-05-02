@@ -36,6 +36,11 @@ namespace Chess
             return true;
         }
 
+        internal bool IsValidPosition(Position selectedPosition)
+        {
+            throw new NotImplementedException();
+        }
+
         private bool CheckMoveValid(IPiece curPiece, IPiece pieceAtPosition)
         {
             if (pieceAtPosition == null || pieceAtPosition.Owner != curPiece.Owner)
@@ -43,6 +48,11 @@ namespace Chess
                 return true;
             }
             return false;
+        }
+
+        internal Piece GetPieceByPosition(Position selectedPosition)
+        {
+            throw new NotImplementedException();
         }
 
         public void GenerateMoves(Position position)
@@ -83,6 +93,17 @@ namespace Chess
 
         }
 
+        internal bool LastMoveTargetLocation(Position possibleOpponentsPawnPosition)
+        {
+            // TODO: no history so far!
+            return false;
+        }
+
+        internal void MoveThePiece(Position selectedPosition, Position targetPosition)
+        {
+            throw new NotImplementedException();
+        }
+
         private void ContinuousDirectionChecker(Position position, MoveSet move)
         {
             var nextPositionToCheck = new Position(position.Row + move.RowModifier, position.Column + move.ColumnModifier);
@@ -98,7 +119,7 @@ namespace Chess
         public bool CheckSpaceforOpposingTeamPiece(Position position, IPiece piece)
         {
             return this.contents[position.Row, position.Column] != null
-                   && this.contents[position.Row, position.Column].Owner.Color != piece.Owner.Color;
+                   && this.contents[position.Row, position.Column].Owner.PlayerKind != piece.Owner.PlayerKind;
         }
     }
 }

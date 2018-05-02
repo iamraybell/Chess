@@ -32,13 +32,19 @@ public PieceType PieceType { get; }
 public PieceType PieceType { get; private set; }
 no difference
 
+private readonly PieceType pieceType;
+private PieceType pieceType;
+
 2. What are the differences between interfaces and abstract classes in C#?
 interfaces are just contracts, and contain no physical code. 
 Abstract classes can code code that can be overrided by subclasses. Keep in mind that classes can inherit from one class, but unlimted* interfaces. 
-
+- Constructors: 
 
 3. Different visibility rules in C#
 public =  accessible to all. 
 private = only accessible by code in itself. 
 internal = only can be accessed by anything in same project/aasembly?
 protected = only acessible to code in class itself or derived classes. 
+
+4. Learn about named arguments in C#
+5. Learn about "pseudocode programming" https://linbug.github.io/programming/2017/10/11/Pseudocode-Programming-fake-it-before-you-make-it/
